@@ -21,7 +21,7 @@
     { "fecha": "2026-12-07", "nombre": "Puente Turístico", "laborable": true },
     { "fecha": "2026-12-08", "nombre": "Inmaculada Concepción de María", "laborable": true },
     { "fecha": "2026-12-24", "nombre": "Nochebuena", "laborable": true },
-    { "fecha": "2026-12-25", "nombre": "Navidad", "laborable": true },
+    { "fecha": "2026-12-25", "nombre": "Navidad", "laborable": false },
     { "fecha": "2026-12-31", "nombre": "Fin de Año", "laborable": true }
   ]
 }
