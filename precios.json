@@ -1,9 +1,9 @@
 {
-  "actualizado": "2025-06-30",
+  "actualizado": "2026-07-07",
   "diarios": [
     {
       "nombre": "Clarín",
-      "notas": "Lun a Vie: $3.800 / Sáb: $5.600 / Dom: $6.300",
+      "notas": "Lun a Vie: $4.300 / Sáb: $6.400 / Dom: $7.200",
       "precios": {
         "lun_vie": 4300.00,
         "sabado": 6400.00,
@@ -59,7 +59,7 @@
     },
     {
       "nombre": "Cronista Comercial",
-      "notas": "Lun a Vie: $3.000 / Sáb y Dom: No sale",
+      "notas": "Lun a Vie: $3.300 / Sáb y Dom: No sale",
       "precios": {
         "lun_vie": 3300.00,
         "sabado": null,
@@ -114,7 +114,7 @@
     },
     {
       "nombre": "Perfil",
-      "notas": "Sáb: $6.900 / Dom: $8.100 / Lun a Vie: No sale",
+      "notas": "Sáb: $7.300 / Dom: $8.600 / Lun a Vie: No sale",
       "precios": {
         "lun_vie": null,
         "sabado": 7300.00,
