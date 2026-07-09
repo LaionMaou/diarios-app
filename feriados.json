@@ -1,0 +1,19 @@
+{
+  "anio": 2026,
+  "feriados": [
+    { "fecha": "2026-01-01", "nombre": "Año Nuevo" },
+    { "fecha": "2026-02-16", "nombre": "Carnaval" },
+    { "fecha": "2026-02-17", "nombre": "Carnaval" },
+    { "fecha": "2026-03-24", "nombre": "Día de la Memoria por la Verdad y la Justicia" },
+    { "fecha": "2026-04-02", "nombre": "Día del Veterano y de los Caídos en Malvinas" },
+    { "fecha": "2026-05-01", "nombre": "Día del Trabajador" },
+    { "fecha": "2026-05-25", "nombre": "Revolución de Mayo" },
+    { "fecha": "2026-06-20", "nombre": "Paso a la Inmortalidad de Manuel Belgrano" },
+    { "fecha": "2026-07-09", "nombre": "Día de la Independencia" },
+    { "fecha": "2026-08-17", "nombre": "Paso a la Inmortalidad de José de San Martín" },
+    { "fecha": "2026-10-12", "nombre": "Día del Respeto a la Diversidad Cultural" },
+    { "fecha": "2026-11-20", "nombre": "Día de la Soberanía Nacional" },
+    { "fecha": "2026-12-08", "nombre": "Inmaculada Concepción de María" },
+    { "fecha": "2026-12-25", "nombre": "Navidad" }
+  ]
+}
