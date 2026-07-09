@@ -3,9 +3,14 @@
   "diarios": [
     {
       "nombre": "Clarín",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=clarin.com&sz=128",
       "notas": "Lun a Vie: $4.300 / Sáb: $6.400 / Dom: $7.200",
       "precios": {
-        "lun_vie": 4300.00,
+        "lunes": 4300.00,
+        "martes": 4300.00,
+        "miercoles": 4300.00,
+        "jueves": 4300.00,
+        "viernes": 4300.00,
         "sabado": 6400.00,
         "domingo": 7200.00
       },
@@ -17,9 +22,14 @@
     },
     {
       "nombre": "La Nación",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=lanacion.com.ar&sz=128",
       "notas": "Lun a Vie: $4.300 / Sáb: $6.400 / Dom: $7.200",
       "precios": {
-        "lun_vie": 4300.00,
+        "lunes": 4300.00,
+        "martes": 4300.00,
+        "miercoles": 4300.00,
+        "jueves": 4300.00,
+        "viernes": 4300.00,
         "sabado": 6400.00,
         "domingo": 7200.00
       },
@@ -31,9 +41,14 @@
     },
     {
       "nombre": "Diario Popular",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=diariopopular.com.ar&sz=128",
       "notas": "Lun a Sáb: $1.800 / Dom: $2.000",
       "precios": {
-        "lun_vie": 1800.00,
+        "lunes": 1800.00,
+        "martes": 1800.00,
+        "miercoles": 1800.00,
+        "jueves": 1800.00,
+        "viernes": 1800.00,
         "sabado": 1800.00,
         "domingo": 2000.00
       },
@@ -45,9 +60,14 @@
     },
     {
       "nombre": "Crónica",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=cronica.com.ar&sz=128",
       "notas": "Lun a Sáb: $1.800 / Dom: $2.000",
       "precios": {
-        "lun_vie": 1800.00,
+        "lunes": 1800.00,
+        "martes": 1800.00,
+        "miercoles": 1800.00,
+        "jueves": 1800.00,
+        "viernes": 1800.00,
         "sabado": 1800.00,
         "domingo": 2000.00
       },
@@ -59,9 +79,14 @@
     },
     {
       "nombre": "Cronista Comercial",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=cronista.com&sz=128",
       "notas": "Lun a Vie: $3.300 / Sáb y Dom: No sale",
       "precios": {
-        "lun_vie": 3300.00,
+        "lunes": 3300.00,
+        "martes": 3300.00,
+        "miercoles": 3300.00,
+        "jueves": 3300.00,
+        "viernes": 3300.00,
         "sabado": null,
         "domingo": null
       },
@@ -72,9 +97,14 @@
     },
     {
       "nombre": "La Prensa",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=laprensa.com.ar&sz=128",
       "notas": "Lun a Vie: $2.000 / Dom: $3.000",
       "precios": {
-        "lun_vie": 2000.00,
+        "lunes": 2000.00,
+        "martes": 2000.00,
+        "miercoles": 2000.00,
+        "jueves": 2000.00,
+        "viernes": 2000.00,
         "sabado": 2000.00,
         "domingo": 3000.00
       },
@@ -86,9 +116,14 @@
     },
     {
       "nombre": "Olé",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=ole.com.ar&sz=128",
       "notas": "Mar a Sáb: $2.100 / Dom y Lun: $2.200",
       "precios": {
-        "lun_vie": 2100.00,
+        "lunes": 2200.00,
+        "martes": 2100.00,
+        "miercoles": 2100.00,
+        "jueves": 2100.00,
+        "viernes": 2100.00,
         "sabado": 2100.00,
         "domingo": 2200.00
       },
@@ -100,9 +135,14 @@
     },
     {
       "nombre": "Página 12",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=pagina12.com.ar&sz=128",
       "notas": "Lun a Vie: $3.800 / Sáb: $5.600 / Dom: $6.300",
       "precios": {
-        "lun_vie": 3800.00,
+        "lunes": 3800.00,
+        "martes": 3800.00,
+        "miercoles": 3800.00,
+        "jueves": 3800.00,
+        "viernes": 3800.00,
         "sabado": 5600.00,
         "domingo": 6300.00
       },
@@ -114,9 +154,14 @@
     },
     {
       "nombre": "Perfil",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=perfil.com&sz=128",
       "notas": "Sáb: $7.300 / Dom: $8.600 / Lun a Vie: No sale",
       "precios": {
-        "lun_vie": null,
+        "lunes": null,
+        "martes": null,
+        "miercoles": null,
+        "jueves": null,
+        "viernes": null,
         "sabado": 7300.00,
         "domingo": 8600.00
       },
@@ -128,9 +173,14 @@
     },
     {
       "nombre": "Tiempo Argentino",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=tiempoar.com.ar&sz=128",
       "notas": "Solo Domingo: $3.000",
       "precios": {
-        "lun_vie": null,
+        "lunes": null,
+        "martes": null,
+        "miercoles": null,
+        "jueves": null,
+        "viernes": null,
         "sabado": null,
         "domingo": 3000.00
       },
@@ -141,9 +191,14 @@
     },
     {
       "nombre": "BAE",
+      "logo": "https://s2.googleusercontent.com/s2/favicons?domain=baenegocios.com&sz=128",
       "notas": "Lun a Vie: $2.000 / Sáb y Dom: No sale",
       "precios": {
-        "lun_vie": 2000.00,
+        "lunes": 2000.00,
+        "martes": 2000.00,
+        "miercoles": 2000.00,
+        "jueves": 2000.00,
+        "viernes": 2000.00,
         "sabado": null,
         "domingo": null
       },
