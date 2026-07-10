@@ -16,8 +16,8 @@
       },
       "feriados": {
         "tipo": "recargo",
-        "valor": 200.00,
-        "texto": "+$200 feriados"
+        "valor": 250.00,
+        "texto": "+$250 feriados"
       }
     },
     {
@@ -35,8 +35,8 @@
       },
       "feriados": {
         "tipo": "recargo",
-        "valor": 280.00,
-        "texto": "+$280 feriados"
+        "valor": 320.00,
+        "texto": "+$320 feriados"
       }
     },
     {
