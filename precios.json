@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-23",
+  "actualizado": "2026-08-31",
   "diarios": [
     {
       "nombre": "Clarín",
@@ -23,15 +23,15 @@
     {
       "nombre": "La Nación",
       "logo": "https://s2.googleusercontent.com/s2/favicons?domain=lanacion.com.ar&sz=128",
-      "notas": "Lun a Vie: $4.300 / Sáb: $6.400 / Dom: $7.200",
+      "notas": "Lun a Vie: $4.800 / Sáb: $7.200 / Dom: $7.900",
       "precios": {
-        "lunes": 4300.00,
-        "martes": 4300.00,
-        "miercoles": 4300.00,
-        "jueves": 4300.00,
-        "viernes": 4300.00,
-        "sabado": 6400.00,
-        "domingo": 7200.00
+        "lunes": 4800.00,
+        "martes": 4800.00,
+        "miercoles": 4800.00,
+        "jueves": 4800.00,
+        "viernes": 4800.00,
+        "sabado": 7200.00,
+        "domingo": 7900.00
       },
       "feriados": {
         "tipo": "recargo",
@@ -174,7 +174,7 @@
     {
       "nombre": "Tiempo Argentino",
       "logo": "https://s2.googleusercontent.com/s2/favicons?domain=tiempoar.com.ar&sz=128",
-      "notas": "Solo Domingo: $3.000",
+      "notas": "Solo Domingo: $4.500",
       "precios": {
         "lunes": null,
         "martes": null,
@@ -182,7 +182,7 @@
         "jueves": null,
         "viernes": null,
         "sabado": null,
-        "domingo": 3000.00
+        "domingo": 4500.00
       },
       "feriados": {
         "tipo": "no_sale",
