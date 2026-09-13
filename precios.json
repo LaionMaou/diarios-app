@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-08-31",
+  "actualizado": "2026-09-13",
   "diarios": [
     {
       "nombre": "Clarín",
@@ -155,15 +155,15 @@
     {
       "nombre": "Perfil",
       "logo": "https://s2.googleusercontent.com/s2/favicons?domain=perfil.com&sz=128",
-      "notas": "Sáb: $7.300 / Dom: $8.600 / Lun a Vie: No sale",
+      "notas": "Sáb: $8.000 / Dom: $8.9.400 / Lun a Vie: No sale",
       "precios": {
         "lunes": null,
         "martes": null,
         "miercoles": null,
         "jueves": null,
         "viernes": null,
-        "sabado": 7300.00,
-        "domingo": 8600.00
+        "sabado": 8000.00,
+        "domingo": 9400.00
       },
       "feriados": {
         "tipo": "recargo",
