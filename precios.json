@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-13",
+  "actualizado": "2026-09-26",
   "diarios": [
     {
       "nombre": "Clarín",
@@ -42,15 +42,15 @@
     {
       "nombre": "Diario Popular",
       "logo": "https://s2.googleusercontent.com/s2/favicons?domain=diariopopular.com.ar&sz=128",
-      "notas": "Lun a Sáb: $1.800 / Dom: $2.000",
+      "notas": "Lun a Sáb: $1.900 / Dom: $2.100",
       "precios": {
-        "lunes": 1800.00,
-        "martes": 1800.00,
-        "miercoles": 1800.00,
-        "jueves": 1800.00,
-        "viernes": 1800.00,
-        "sabado": 1800.00,
-        "domingo": 2000.00
+        "lunes": 1900.00,
+        "martes": 1900.00,
+        "miercoles": 1900.00,
+        "jueves": 1900.00,
+        "viernes": 1900.00,
+        "sabado": 1900.00,
+        "domingo": 2100.00
       },
       "feriados": {
         "tipo": "recargo",
@@ -61,15 +61,15 @@
     {
       "nombre": "Crónica",
       "logo": "https://s2.googleusercontent.com/s2/favicons?domain=cronica.com.ar&sz=128",
-      "notas": "Lun a Sáb: $1.800 / Dom: $2.000",
+      "notas": "Lun a Sáb: $1.900 / Dom: $2.100",
       "precios": {
-        "lunes": 1800.00,
-        "martes": 1800.00,
-        "miercoles": 1800.00,
-        "jueves": 1800.00,
-        "viernes": 1800.00,
-        "sabado": 1800.00,
-        "domingo": 2000.00
+        "lunes": 1900.00,
+        "martes": 1900.00,
+        "miercoles": 1900.00,
+        "jueves": 1900.00,
+        "viernes": 1900.00,
+        "sabado": 1900.00,
+        "domingo": 2100.00
       },
       "feriados": {
         "tipo": "recargo",
