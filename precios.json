@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-26",
+  "actualizado": "2026-10-11",
   "diarios": [
     {
       "nombre": "Clarín",
@@ -82,11 +82,11 @@
       "logo": "https://s2.googleusercontent.com/s2/favicons?domain=cronista.com&sz=128",
       "notas": "Lun a Vie: $3.300 / Sáb y Dom: No sale",
       "precios": {
-        "lunes": 3300.00,
-        "martes": 3300.00,
-        "miercoles": 3300.00,
-        "jueves": 3300.00,
-        "viernes": 3300.00,
+        "lunes": 3800.00,
+        "martes": 3800.00,
+        "miercoles": 3800.00,
+        "jueves": 3800.00,
+        "viernes": 3800.00,
         "sabado": null,
         "domingo": null
       },
@@ -138,13 +138,13 @@
       "logo": "https://s2.googleusercontent.com/s2/favicons?domain=pagina12.com.ar&sz=128",
       "notas": "Lun a Vie: $4.900 / Sáb: $7.200 / Dom: $8.100",
       "precios": {
-        "lunes": 4900.00,
-        "martes": 4900.00,
-        "miercoles": 4900.00,
-        "jueves": 4900.00,
-        "viernes": 4900.00,
-        "sabado": 7200.00,
-        "domingo": 8100.00
+        "lunes": 5900.00,
+        "martes": 5900.00,
+        "miercoles": 5900.00,
+        "jueves": 5900.00,
+        "viernes": 5900.00,
+        "sabado": 8700.00,
+        "domingo": 9800.00
       },
       "feriados": {
         "tipo": "recargo",
@@ -182,7 +182,7 @@
         "jueves": null,
         "viernes": null,
         "sabado": null,
-        "domingo": 4500.00
+        "domingo": 5000.00
       },
       "feriados": {
         "tipo": "no_sale",
