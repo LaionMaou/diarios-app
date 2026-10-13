@@ -80,7 +80,7 @@
     {
       "nombre": "Cronista Comercial",
       "logo": "https://s2.googleusercontent.com/s2/favicons?domain=cronista.com&sz=128",
-      "notas": "Lun a Vie: $3.300 / Sáb y Dom: No sale",
+      "notas": "Lun a Vie: $3.800 / Sáb y Dom: No sale",
       "precios": {
         "lunes": 3800.00,
         "martes": 3800.00,
@@ -136,7 +136,7 @@
     {
       "nombre": "Página 12",
       "logo": "https://s2.googleusercontent.com/s2/favicons?domain=pagina12.com.ar&sz=128",
-      "notas": "Lun a Vie: $4.900 / Sáb: $7.200 / Dom: $8.100",
+      "notas": "Lun a Vie: $5.900 / Sáb: $8.700 / Dom: $9.800",
       "precios": {
         "lunes": 5900.00,
         "martes": 5900.00,
@@ -174,7 +174,7 @@
     {
       "nombre": "Tiempo Argentino",
       "logo": "https://s2.googleusercontent.com/s2/favicons?domain=tiempoar.com.ar&sz=128",
-      "notas": "Solo Domingo: $4.500",
+      "notas": "Solo Domingo: $5.000",
       "precios": {
         "lunes": null,
         "martes": null,
