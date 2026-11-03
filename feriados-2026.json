@@ -17,6 +17,8 @@
     { "fecha": "2026-08-17", "nombre": "Paso a la Inmortalidad del General José de San Martín", "laborable": true },
     { "fecha": "2026-10-12", "nombre": "Día del Respeto a la Diversidad Cultural", "laborable": true },
     { "fecha": "2026-11-07", "nombre": "Día del Canillita", "laborable": false },
+    { "fecha": "2026-11-09", "nombre": "Llegada del Papa Leon XIV", "laborable": true },
+    { "fecha": "2026-11-10", "nombre": "Feriado Religioso", "laborable": true },
     { "fecha": "2026-11-23", "nombre": "Día de la Soberanía Nacional", "laborable": true },
     { "fecha": "2026-12-07", "nombre": "Puente Turístico", "laborable": true },
     { "fecha": "2026-12-08", "nombre": "Inmaculada Concepción de María", "laborable": true },
