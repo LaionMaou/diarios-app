@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Precios de Diarios · Histórico</title>
+  <style>
+    /* ===== VARIABLES INSTITUCIONALES ===== */
+    :root {
+      --navy: #1E3A5F;
+      --navy-dark: #142A44;
+      --gold: #C49A2A;
+      --gold-light: #E0B84A;
+      --paper: #F7F4EF;
+      --paper-alt: #EDE9E2;
+      --text: #1C1C1C;
+      --text-muted: #5A5A5A;
+      --border: #D6D0C6;
+      --radius: 6px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.06);
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--paper);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ===== HEADER INSTITUCIONAL ===== */
+    .header {
+      background: var(--navy);
+      color: #fff;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 4px solid var(--gold);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .header h1 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .header .badge {
+      font-size: 0.75rem;
+      background: var(--gold);
+      color: var(--navy-dark);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== NAVEGACIÓN DE MESES ===== */
+    .month-nav {
+      background: var(--navy-dark);
+      padding: 0 1rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .month-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.25rem;
+      padding: 0.5rem 0;
+      white-space: nowrap;
+    }
+    .month-tab {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #b8c4d4;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.45rem 0.9rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .month-tab:hover {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+    }
+    .month-tab.active {
+      background: var(--gold);
+      color: var(--navy-dark);
+      border-color: var(--gold-light);
+    }
+
+    /* ===== CONTENIDO PRINCIPAL ===== */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    /* Fecha de actualización */
+    .updated {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .updated strong { color: var(--navy); }
+
+    /* ===== TABLA EN ESCRITORIO ===== */
+    .desktop-table { display: none; }
+    @media (min-width: 768px) {
+      .desktop-table { display: block; }
+      .mobile-cards { display: none; }
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      font-size: 0.85rem;
+    }
+    .price-table th {
+      background: var(--navy);
+      color: #fff;
+      font-family: var(--font-serif);
+      font-weight: 600;
+      padding: 0.75rem 0.6rem;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .price-table td {
+      padding: 0.65rem 0.6rem;
+      border-bottom: 1px solid var(--paper-alt);
+      vertical-align: middle;
+    }
+    .price-table tr:last-child td { border-bottom: none; }
+    .price-table tr:hover td { background: #FBF9F6; }
+
+    .diario-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .diario-cell img {
+      width: 22px;
+      height: 22px;
+      border-radius: 3px;
+      object-fit: contain;
+    }
+    .note-cell {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      max-width: 180px;
+    }
+    .price-cell {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+    }
+    .price-cell.na {
+      color: #aaa;
+      font-style: italic;
+    }
+    .feriado-cell {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ===== TARJETAS EN MÓVIL ===== */
+    .mobile-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--gold);
+      padding: 1rem;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+    .card-header img {
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      object-fit: contain;
+    }
+    .card-header h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 700;
+    }
+    .card-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+    .card-prices {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+    .card-prices .day {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25rem 0;
+      border-bottom: 1px dotted var(--border);
+    }
+    .card-prices .day span:first-child {
+      color: var(--text-muted);
+      text-transform: capitalize;
+    }
+    .card-prices .day span:last-child {
+      font-weight: 600;
+      color: var(--navy);
+      font-variant-numeric: tabular-nums;
+    }
+    .card-prices .day span:last-child.na {
+      color: #aaa;
+      font-weight: 400;
+      font-style: italic;
+    }
+    .card-feriado {
+      margin-top: 0.75rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid var(--paper-alt);
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ===== ESTADOS ===== */
+    .loading, .error {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .error { color: #b91c1c; }
+    .spinner {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border: 3px solid var(--border);
+      border-top-color: var(--navy);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin-bottom: 0.75rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <h1>Precios de Diarios</h1>
+      <span class="badge">Histórico mensual</span>
+    </div>
+  </header>
+
+  <!-- NAVEGACIÓN DE MESES -->
+  <nav class="month-nav" id="monthNav" aria-label="Selector de mes">
+    <div class="month-nav-inner" id="monthTabs">
+      <!-- Se genera dinámicamente -->
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <main class="main">
+    <div class="updated" id="updatedInfo"></div>
+    <div id="content">
+      <div class="loading">
+        <div class="spinner"></div>
+        <p>Cargando precios…</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // ============================================================
+    // CONFIGURACIÓN
+    // ============================================================
+    // URL RAW de tu JSON (reemplaza con la tuya)
+    const JSON_URL = 'https://raw.githubusercontent.com/LaionMaou/diarios-app/5a0eb624e2b38ceca404639e2feb243fed30dec1/precios.json';
+
+    // Si tu JSON NO tiene la estructura { "YYYY-MM": { ... } },
+    // y en cambio usas un archivo por mes, cambia esta función:
+    // const getMonthUrl = (key) => `https://raw.githubusercontent.com/.../precios-${key}.json`;
+
+    // ============================================================
+    // ESTADO
+    // ============================================================
+    let allData = {};        // { "2026-10": { actualizado, diarios }, ... }
+    let currentMonth = null;
+
+    // ============================================================
+    // REFERENCIAS DOM
+    // ============================================================
+    const monthTabsEl = document.getElementById('monthTabs');
+    const contentEl   = document.getElementById('content');
+    const updatedEl   = document.getElementById('updatedInfo');
+
+    // ============================================================
+    // 1. CARGAR DATOS
+    // ============================================================
+    async function loadData() {
+      try {
+        const res = await fetch(JSON_URL, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        // Detectar estructura:
+        // - Si el JSON ya viene con claves de mes ("2026-10"), lo usamos tal cual.
+        // - Si es un único mes (como tu ejemplo), lo envolvemos en un objeto
+        //   con la clave "2026-10" para que el resto del código funcione.
+        if (data.diarios) {
+          // Asumimos que es un solo mes; usamos "actualizado" para la clave
+          const key = data.actualizado ? data.actualizado.slice(0, 7) : 'actual';
+          allData = { [key]: data };
+        } else {
+          allData = data;
+        }
+
+        const months = Object.keys(allData).sort().reverse(); // más reciente primero
+        if (months.length === 0) throw new Error('No hay meses disponibles');
+
+        renderMonthTabs(months);
+        selectMonth(months[0]);
+      } catch (err) {
+        console.error('Error cargando JSON:', err);
+        contentEl.innerHTML = `
+          <div class="error">
+            <p><strong>No se pudieron cargar los precios.</strong></p>
+            <p>${err.message}</p>
+            <p style="margin-top:0.75rem;font-size:0.8rem;">
+              Verificá la URL del JSON o intentá de nuevo más tarde.
+            </p>
+          </div>`;
+      }
+    }
+
+    // ============================================================
+    // 2. RENDERIZAR PESTAÑAS DE MES
+    // ============================================================
+    function renderMonthTabs(months) {
+      monthTabsEl.innerHTML = '';
+      months.forEach((key) => {
+        const btn = document.createElement('button');
+        btn.className = 'month-tab';
+        btn.dataset.month = key;
+        btn.textContent = formatMonthLabel(key);
+        btn.addEventListener('click', () => selectMonth(key));
+        monthTabsEl.appendChild(btn);
+      });
+    }
+
+    function formatMonthLabel(key) {
+      // "2026-10" -> "Oct 2026"
+      const [year, month] = key.split('-');
+      const months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+      return `${months[parseInt(month, 10) - 1]} ${year}`;
+    }
+
+    // ============================================================
+    // 3. SELECCIONAR MES Y RENDERIZAR
+    // ============================================================
+    function selectMonth(key) {
+      currentMonth = key;
+      // Actualizar pestaña activa
+      monthTabsEl.querySelectorAll('.month-tab').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.month === key);
+      });
+
+      const monthData = allData[key];
+      if (!monthData) {
+        contentEl.innerHTML = '<div class="error">Mes no encontrado.</div>';
+        return;
+      }
+
+      renderContent(monthData);
+    }
+
+    // ============================================================
+    // 4. RENDERIZAR CONTENIDO (TABLA + TARJETAS)
+    // ============================================================
+    function renderContent(monthData) {
+      const { actualizado, diarios } = monthData;
+
+      // Info de actualización
+      updatedEl.innerHTML = actualizado
+        ? `Última actualización: <strong>${formatDate(actualizado)}</strong>`
+        : '';
+
+      if (!diarios || diarios.length === 0) {
+        contentEl.innerHTML = '<div class="error">No hay diarios para este mes.</div>';
+        return;
+      }
+
+      // --- Construir HTML de la tabla (escritorio) ---
+      const tableRows = diarios.map((d) => {
+        const precios = d.precios || {};
+        const days = ['lunes','martes','miercoles','jueves','viernes','sabado','domingo'];
+        const priceCells = days.map((day) => {
+          const val = precios[day];
+          const cls = val == null ? 'price-cell na' : 'price-cell';
+          const txt = val == null ? '—' : `$${val.toLocaleString('es-AR')}`;
+          return `<td class="${cls}">${txt}</td>`;
+        }).join('');
+
+        const feriado = d.feriados
+          ? `<td class="feriado-cell">${d.feriados.texto || ''}</td>`
+          : '<td class="feriado-cell"></td>';
+
+        return `
+          <tr>
+            <td>
+              <div class="diario-cell">
+                ${d.logo ? `<img src="${d.logo}" alt="" loading="lazy" />` : ''}
+                <span>${d.nombre}</span>
+              </div>
+            </td>
+            <td class="note-cell">${d.notas || ''}</td>
+            ${priceCells}
+            ${feriado}
+          </tr>`;
+      }).join('');
+
+      const tableHTML = `
+        <div class="desktop-table">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>Diario</th>
+                <th>Notas</th>
+                <th>Lun</th>
+                <th>Mar</th>
+                <th>Mié</th>
+                <th>Jue</th>
+                <th>Vie</th>
+                <th>Sáb</th>
+                <th>Dom</th>
+                <th>Feriados</th>
+              </tr>
+            </thead>
+            <tbody>${tableRows}</tbody>
+          </table>
+        </div>`;
+
+      // --- Construir HTML de tarjetas (móvil) ---
+      const cardsHTML = diarios.map((d) => {
+        const precios = d.precios || {};
+        const days = [
+          ['lunes','Lun'], ['martes','Mar'], ['miercoles','Mié'],
+          ['jueves','Jue'], ['viernes','Vie'], ['sabado','Sáb'], ['domingo','Dom']
+        ];
+        const dayItems = days.map(([key, label]) => {
+          const val = precios[key];
+          const cls = val == null ? 'na' : '';
+          const txt = val == null ? '—' : `$${val.toLocaleString('es-AR')}`;
+          return `<div class="day"><span>${label}</span><span class="${cls}">${txt}</span></div>`;
+        }).join('');
+
+        const feriadoHTML = d.feriados
+          ? `<div class="card-feriado">${d.feriados.texto || ''}</div>`
+          : '';
+
+        return `
+          <div class="card">
+            <div class="card-header">
+              ${d.logo ? `<img src="${d.logo}" alt="" loading="lazy" />` : ''}
+              <h3>${d.nombre}</h3>
+            </div>
+            ${d.notas ? `<div class="card-note">${d.notas}</div>` : ''}
+            <div class="card-prices">${dayItems}</div>
+            ${feriadoHTML}
+          </div>`;
+      }).join('');
+
+      contentEl.innerHTML = `
+        ${tableHTML}
+        <div class="mobile-cards">${cardsHTML}</div>`;
+    }
+
+    // ============================================================
+    // 5. UTILIDADES
+    // ============================================================
+    function formatDate(iso) {
+      // "2026-10-11" -> "11/10/2026"
+      const [y, m, d] = iso.split('-');
+      return `${d}/${m}/${y}`;
+    }
+
+    // ============================================================
+    // INICIALIZAR
+    // ============================================================
+    loadData();
+  </script>
+</body>
+</html>
